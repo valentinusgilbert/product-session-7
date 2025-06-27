@@ -3,15 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import ProductDetailCard, { ProductDetailSkeleton } from "../../../components/ProductDetailCard";
-
-interface Product {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  description: string;
-  category: string;
-}
+import { getProductDetail, Product } from "../../api/product";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -21,8 +13,8 @@ export default function ProductDetail() {
 
   useEffect(() => {
     if (!id) return;
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
+    const productId = Array.isArray(id) ? id[0] : id;
+    getProductDetail(productId)
       .then((data) => {
         setProduct(data);
         setLoading(false);

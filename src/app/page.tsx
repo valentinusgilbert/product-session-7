@@ -1,23 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ProductCard, { ProductCardSkeleton } from "../components/ProductCard";
-
-interface Product {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  description: string;
-  category: string;
-}
+import { getProductList, Product } from "./api/product";
 
 export default function Home({ search = '', setSearch = () => {} }: { search?: string; setSearch?: (v: string) => void }) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=5")
-      .then((res) => res.json())
+    getProductList(5)
       .then((data) => {
         setProducts(data);
         setLoading(false);
