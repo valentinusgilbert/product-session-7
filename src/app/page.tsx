@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import ProductCard, { ProductCardSkeleton } from "../components/ProductCard";
 import { getProductList, Product } from "./api/product";
 import { useSearch } from "../components/SearchContext";
-import type { Metadata } from "next";
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -45,8 +44,3 @@ export default function Home() {
     </main>
   );
 }
-
-export const metadata: Metadata = {
-  title: "Productify - Home",
-  description: "Temukan produk terbaik di Productify!",
-};
