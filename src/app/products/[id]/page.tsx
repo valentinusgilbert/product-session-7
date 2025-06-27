@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import ProductDetailCard, { ProductDetailSkeleton } from "../../../components/ProductDetailCard";
 import { getProductDetail, Product } from "../../api/product";
+import type { Metadata } from "next";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -51,4 +52,12 @@ export default function ProductDetail() {
       </div>
     </main>
   );
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const product = await getProductDetail(params.id);
+  return {
+    title: `Productify - ${product.title}`,
+    description: product.description,
+  };
 } 

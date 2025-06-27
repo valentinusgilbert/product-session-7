@@ -1,4 +1,5 @@
 import { FaInstagram, FaGithub, FaWhatsapp, FaGlobe } from 'react-icons/fa';
+import type { Metadata } from "next";
 
 export default function Contact() {
   return (
@@ -46,4 +47,9 @@ export default function Contact() {
       </div>
     </main>
   );
-} 
+}
+
+export const metadata: Metadata = {
+  title: "Productify - Contact",
+  description: "Hubungi kami di Productify untuk pertanyaan dan dukungan.",
+}; 
