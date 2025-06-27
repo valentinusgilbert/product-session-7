@@ -1,5 +1,5 @@
 import React from "react";
-import { FiHeart } from "react-icons/fi";
+import Image from "next/image";
 import { toast } from "sonner";
 
 interface Product {
@@ -50,7 +50,7 @@ export default function ProductDetailCard({
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col sm:flex-row gap-10 border border-blue-100 hover:shadow-2xl transition-all relative">
       <div className="relative flex-shrink-0 flex items-center justify-center">
-        <img src={product.image} alt={product.title} className="h-56 w-56 object-contain rounded-xl bg-gray-50 shadow-sm" />
+        <Image src={product.image} alt={product.title} width={224} height={224} className="h-56 w-56 object-contain rounded-xl bg-gray-50 shadow-sm" />
       </div>
       <div className="flex-1 flex flex-col justify-center">
         <h1 className="text-3xl font-extrabold mb-3 text-blue-800 drop-shadow-sm">{product.title}</h1>

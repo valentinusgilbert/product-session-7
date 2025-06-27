@@ -1,14 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import { usePathname } from "next/navigation";
+import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Toaster } from "sonner";
 import { SearchProvider } from "./SearchContext";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
   return (
     <SearchProvider>
       <Toaster />

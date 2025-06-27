@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FiHeart } from "react-icons/fi";
 import { toast } from "sonner";
+import Image from "next/image";
 
 interface Product {
   id: number;
@@ -42,9 +43,11 @@ export default function ProductCard({ product }: { product: Product }) {
         <FiHeart />
       </button>
       <div className="w-full flex justify-center">
-        <img
+        <Image
           src={product.image}
           alt={product.title}
+          width={128}
+          height={128}
           className="h-32 object-contain mb-4 transition-transform group-hover:scale-105"
         />
       </div>

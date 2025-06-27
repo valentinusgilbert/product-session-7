@@ -10,25 +10,25 @@ const api = axios.create({
 });
 
 // Helper untuk GET
-export const apiGet = async <T = any>(url: string, config = {}) => {
+export const apiGet = async <T = unknown>(url: string, config: Record<string, unknown> = {}) => {
   const response = await api.get<T>(url, config);
   return response.data;
 };
 
 // Helper untuk POST
-export const apiPost = async <T = any>(url: string, data?: any, config = {}) => {
+export const apiPost = async <T = unknown>(url: string, data?: unknown, config: Record<string, unknown> = {}) => {
   const response = await api.post<T>(url, data, config);
   return response.data;
 };
 
 // Helper untuk PUT
-export const apiPut = async <T = any>(url: string, data?: any, config = {}) => {
+export const apiPut = async <T = unknown>(url: string, data?: unknown, config: Record<string, unknown> = {}) => {
   const response = await api.put<T>(url, data, config);
   return response.data;
 };
 
 // Helper untuk DELETE
-export const apiDelete = async <T = any>(url: string, config = {}) => {
+export const apiDelete = async <T = unknown>(url: string, config: Record<string, unknown> = {}) => {
   const response = await api.delete<T>(url, config);
   return response.data;
 };
