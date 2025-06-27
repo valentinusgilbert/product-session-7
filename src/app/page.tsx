@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from "react";
 import ProductCard, { ProductCardSkeleton } from "../components/ProductCard";
 import { getProductList, Product } from "./api/product";
+import { useSearch } from "../components/SearchContext";
 
-export default function Home({ search = '', setSearch = () => {} }: { search?: string; setSearch?: (v: string) => void }) {
+export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const { search } = useSearch();
 
   useEffect(() => {
     getProductList(5)

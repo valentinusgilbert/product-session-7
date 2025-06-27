@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { FiSearch } from "react-icons/fi";
+import { useSearch } from "./SearchContext";
 
-export default function Header({ search, setSearch }: { search: string; setSearch: (v: string) => void }) {
+export default function Header() {
+  const { search, setSearch } = useSearch();
   return (
     <header className="bg-white shadow sticky top-0 z-50">
       <nav className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-center px-6 py-4 gap-4 sm:gap-0">
